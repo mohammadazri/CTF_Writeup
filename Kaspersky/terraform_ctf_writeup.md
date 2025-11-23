@@ -25,24 +25,21 @@ flag: sunctf25{1_tH0ught_t3rr4f0rm_pl4n_w4s_h4rml3ss?}
 <details>
 	<summary><strong>▼ Expanded Analysis</strong></summary>
 	<blockquote>Vector: Unsandboxed plan API · Impact: Arbitrary command execution · Mode: Shell via JSON wrapper</blockquote>
-	<details>
-		<summary>Flow Diagram</summary>
-		<div class="mermaid">
+<details>
+<summary><strong>▼ Flow Diagram</strong></summary>
+
+<div class="mermaid">
 flowchart LR
-  A[Attacker HCL] --> B[data "external" program]
-  B --> C[Base64 + sed wrapper]
-  C --> D[List /]
-  D --> E[Find SUID /getflag]
-  E --> F[Execute /getflag | base64]
-  F --> G[Decode locally]
-  G --> H[Flag]
-  style H fill:#0b6623,stroke:#0b6623,color:#fff
-		</div>
-		<pre><code>ASCII:
-[HCL] -> [external] -> [wrapper] -> [ls /] -> [find /getflag] -> [/getflag | base64] -> [decode] -> [FLAG]
-</code></pre>
-		</details>
-	<details>
+  A[Known Story Plaintext P_msg] -->|XOR| K[Recovered Keystream]
+  C1[Ciphertext C_msg] -->|XOR with P_msg| K
+  C2[Ciphertext C_flag] -->|XOR with K| F[Flag Plaintext]
+  style K fill:#222,stroke:#555,color:#eee
+  style F fill:#0b6623,stroke:#0b6623,color:#fff
+</div>
+
+</details>
+
+<details>
 		<summary>Execution Notes</summary>
 		<pre style="white-space:pre-wrap;">Wrapper pattern: base64 | tr -d '\n' | sed 's/.*/{"key":"&"}/'
 Minimizes quoting issues; ensures JSON parse by Terraform external provider.</pre>
