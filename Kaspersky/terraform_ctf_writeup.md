@@ -1,3 +1,4 @@
+<!-- meta -->
 ---
 title: Terraform External Provider Abuse
 ctf: Kaspersky 2025
@@ -6,6 +7,46 @@ difficulty: Medium
 date: 2025-11-23
 flag: sunctf25{1_tH0ught_t3rr4f0rm_pl4n_w4s_h4rml3ss?}
 ---
+<!-- /meta -->
+
+<div align="center">
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Terraform-External%20Provider%20Abuse-critical?logo=terraform&logoColor=white&labelColor=0d1117&color=7d0a0a">
+	<img alt="Terraform External Provider Abuse" src="https://img.shields.io/badge/Terraform-External%20Provider%20Abuse-critical?logo=terraform&logoColor=white&labelColor=fafafa&color=7d0a0a">
+</picture>
+<sub>Unsandboxed external data source enables arbitrary shell & SUID flag extraction.</sub>
+
+<table>
+	<tr><td><strong>CTF</strong></td><td>Kaspersky 2025</td><td><strong>Category</strong></td><td>Cloud/Web</td></tr>
+	<tr><td><strong>Difficulty</strong></td><td>Medium</td><td><strong>Exploit Time</strong></td><td>&lt; 2 min</td></tr>
+	<tr><td><strong>Primitive</strong></td><td>`data "external"`</td><td><strong>Flag</strong></td><td><code>sunctf25{1_tH0ught_t3rr4f0rm_pl4n_w4s_h4rml3ss?}</code></td></tr>
+</table>
+
+<details>
+	<summary><strong>▼ Expanded Analysis</strong></summary>
+	<blockquote>Vector: Unsandboxed plan API · Impact: Arbitrary command execution · Mode: Shell via JSON wrapper</blockquote>
+	<details>
+		<summary>Flow Diagram (Mermaid)</summary>
+
+```mermaid
+flowchart LR
+	A[Attacker HCL] --> B[data "external" program]
+	B --> C[Base64 + sed wrapper]
+	C --> D[List /]
+	D --> E[Find SUID /getflag]
+	E --> F[Execute /getflag | base64]
+	F --> G[Decode locally]
+	G --> H[Flag]
+	style H fill:#0b6623,stroke:#0b6623,color:#fff
+```
+	</details>
+	<details>
+		<summary>Execution Notes</summary>
+		<pre style="white-space:pre-wrap;">Wrapper pattern: base64 | tr -d '\n' | sed 's/.*/{"key":"&"}/'
+Minimizes quoting issues; ensures JSON parse by Terraform external provider.</pre>
+	</details>
+</details>
+</div>
 
 # Terraform External Provider Abuse (Concise)
 

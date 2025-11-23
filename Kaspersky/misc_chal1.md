@@ -1,3 +1,4 @@
+<!-- meta -->
 ---
 title: Packet Palette CSS Color Stego
 ctf: Kaspersky 2025
@@ -7,6 +8,43 @@ difficulty: Easy
 date: 2025-11-23
 flag: sunctf25{u6ly_c55_c0l0r5}
 ---
+<!-- /meta -->
+
+<div align="center">
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/CSS-Color%20Stego-success?logo=css3&logoColor=white&labelColor=0d1117&color=1e88e5">
+    <img alt="CSS Color Stego" src="https://img.shields.io/badge/CSS-Color%20Stego-success?logo=css3&logoColor=white&labelColor=fafafa&color=1e88e5">
+</picture>
+<sub>Sequential color triplets encode printable ASCII for flag recovery.</sub>
+
+<table>
+    <tr><td><strong>CTF</strong></td><td>Kaspersky 2025</td><td><strong>Category</strong></td><td>Misc / Forensics</td></tr>
+    <tr><td><strong>Difficulty</strong></td><td>Easy</td><td><strong>Triplets</strong></td><td>25</td></tr>
+    <tr><td><strong>Exploit Time</strong></td><td>&lt; 2 min</td><td><strong>Flag</strong></td><td><code>sunctf25{u6ly_c55_c0l0r5}</code></td></tr>
+</table>
+
+<details>
+    <summary><strong>▼ Expanded Analysis</strong></summary>
+    <blockquote>Vector: Embedded style attributes · Primitive: Hex color triplets · Impact: Direct flag reconstruction</blockquote>
+    <details>
+        <summary>Flow Diagram (Mermaid)</summary>
+
+```mermaid
+flowchart LR
+    P[PCAP] --> H[Extract HTML]
+    H --> C[Collect color values]
+    C --> X[Hex to raw bytes]
+    X --> F[Filter printable]
+    F --> FLAG[Flag]
+    style FLAG fill:#0b6623,stroke:#0b6623,color:#fff
+```
+    </details>
+    <details>
+        <summary>Noise Considerations</summary>
+        <pre style="white-space:pre-wrap;">Non-printable bytes discarded; ordering preserved to avoid permutation corruption.</pre>
+    </details>
+</details>
+</div>
 
 # CSS Color Steganography (Concise)
 

@@ -1,3 +1,4 @@
+<!-- meta -->
 ---
 title: Spaghetti PowerShell Multi-Flag Reverse
 ctf: Huntress
@@ -5,10 +6,45 @@ category: Malware Reverse
 difficulty: Medium
 date: 2025-11-23
 flags:
-  - flag{39544d3b5374ebf7d39b8c260fc4afd8}
-  - flag{b313794dcef335da6206d54af81b6203}
-  - flag{60814731f508781b9a5f8636c817af9d}
+    - flag{39544d3b5374ebf7d39b8c260fc4afd8}
+    - flag{b313794dcef335da6206d54af81b6203}
+    - flag{60814731f508781b9a5f8636c817af9d}
 ---
+<!-- /meta -->
+
+<div align="center">
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/PowerShell-Obfuscation%20Cascade-critical?logo=powershell&logoColor=white&labelColor=0d1117&color=8b0000">
+    <img alt="PowerShell Obfuscation Cascade" src="https://img.shields.io/badge/PowerShell-Obfuscation%20Cascade-critical?logo=powershell&logoColor=white&labelColor=fafafa&color=8b0000">
+</picture>
+<sub>Replace-chain expansion reveals AMSI bypass, logging suppression, Defender exclusions & three flags.</sub>
+
+<table>
+    <tr><td><strong>CTF</strong></td><td>Huntress</td><td><strong>Category</strong></td><td>Malware Reverse</td></tr>
+    <tr><td><strong>Difficulty</strong></td><td>Medium</td><td><strong>Payloads</strong></td><td>Multiple FonatozQZ blocks</td></tr>
+    <tr><td><strong>Flags</strong></td><td>3</td><td><strong>Time</strong></td><td>&lt; 10 min</td></tr>
+</table>
+
+<details>
+    <summary><strong>▼ Flow Diagram (Mermaid)</strong></summary>
+
+```mermaid
+flowchart LR
+    S[Script] --> R[Extract FonatozQZ blocks]
+    R --> C[Replay .Replace() chain]
+    C --> T{Type?}
+    T -->|Bitstream| B[Map bits]
+    T -->|Entities| E[Decode HTML]
+    T -->|Plaintext| P[Search flag]
+    B --> F1[Flag 1]
+    E --> F2[Flag 2]
+    P --> F3[Flag 3]
+    style F1 fill:#0b6623,color:#fff
+    style F2 fill:#0b6623,color:#fff
+    style F3 fill:#0b6623,color:#fff
+```
+    </details>
+</div>
 
 # Spaghetti Multi-Flag Dropper (Concise)
 

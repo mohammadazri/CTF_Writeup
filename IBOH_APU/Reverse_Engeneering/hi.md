@@ -1,3 +1,4 @@
+<!-- meta -->
 ---
 title: HI Hidden Function Invocation
 ctf: IBOH_APU
@@ -7,6 +8,35 @@ difficulty: Medium
 date: 2025-11-23
 flag: BOH25{D1d_u_s0lv3d_it_w17h0u7_CHa7GP7_?_W311_D0n3!}
 ---
+<!-- /meta -->
+
+<div align="center">
+<picture>
+	<source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Reverse-PIE%20Symbol%20Call-critical?logo=gnometerminal&logoColor=white&labelColor=0d1117&color=8b0000">
+	<img alt="PIE Symbol Call" src="https://img.shields.io/badge/Reverse-PIE%20Symbol%20Call-critical?logo=gnometerminal&logoColor=white&labelColor=fafafa&color=8b0000">
+</picture>
+<sub>Direct gdb invocation of hidden function yields flag.</sub>
+
+<table>
+	<tr><td><strong>CTF</strong></td><td>IBOH_APU</td><td><strong>Category</strong></td><td>Reverse Engineering</td></tr>
+	<tr><td><strong>Difficulty</strong></td><td>Medium</td><td><strong>Offset</strong></td><td>0x1208</td></tr>
+	<tr><td><strong>Exploit Time</strong></td><td>&lt; 1 min</td><td><strong>Flag</strong></td><td><code>BOH25{D1d_u_s0lv3d_it_w17h0u7_CHa7GP7_?_W311_D0n3!}</code></td></tr>
+</table>
+
+<details>
+	<summary><strong>▼ Flow Diagram (Mermaid)</strong></summary>
+
+```mermaid
+flowchart LR
+	B[Binary] --> S[readelf symbols]
+	S --> G[gdb start]
+	G --> A[Resolve address]
+	A --> C[Call ((void(*)()) secret_func)()]
+	C --> F[Flag]
+	style F fill:#0b6623,stroke:#0b6623,color:#fff
+```
+	</details>
+</div>
 
 # HI Hidden Function (Concise)
 

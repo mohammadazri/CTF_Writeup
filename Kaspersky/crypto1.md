@@ -1,3 +1,4 @@
+<!-- meta -->
 ---
 title: AES Keyspace Reduction Crypto
 ctf: Kaspersky 2025
@@ -7,6 +8,46 @@ difficulty: Hard
 date: 2025-11-23
 flag: kaspersky{7h1s_3t3rn41_str1v1ng_m4k3s_m3_wh4t_1_4m}
 ---
+<!-- /meta -->
+
+<div align="center">
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/AES-Keyspace%20Reduction-critical?logo=apache&logoColor=white&labelColor=0d1117&color=7d0a0a">
+    <img alt="AES Keyspace Reduction" src="https://img.shields.io/badge/AES-Keyspace%20Reduction-critical?logo=apache&logoColor=white&labelColor=fafafa&color=7d0a0a">
+</picture>
+<sub>Structured ciphertext enables segmented key scoring and pruning → full recovery.</sub>
+
+<table>
+    <tr><td><strong>CTF</strong></td><td>Kaspersky 2025</td><td><strong>Category</strong></td><td>Crypto</td></tr>
+    <tr><td><strong>Difficulty</strong></td><td>Hard</td><td><strong>Blocks</strong></td><td>79</td></tr>
+    <tr><td><strong>Exploit Time</strong></td><td>~5 min</td><td><strong>Flag</strong></td><td><code>kaspersky{7h1s_3t3rn41_str1v1ng_m4k3s_m3_wh4t_1_4m}</code></td></tr>
+</table>
+
+<details>
+    <summary><strong>▼ Expanded Analysis</strong></summary>
+    <blockquote>Vector: Structured ECB/CBC artifacts · Primitive: AES · Mode: CBC (assumed) · Impact: Full plaintext & flag recovery</blockquote>
+    <details>
+        <summary>Flow Diagram (Mermaid)</summary>
+
+```mermaid
+flowchart LR
+    C[Ciphertext 79 blocks] --> S[Split Blocks]
+    S --> G[16-bit subkey brute force + score]
+    G --> P[Prune top candidates]
+    P --> X[Cartesian combine]
+    X --> V[IV byte brute force]
+    V --> D[Decrypt]
+    D --> F[Flag]
+    style F fill:#0b6623,stroke:#0b6623,color:#fff
+```
+    </details>
+    <details>
+        <summary>Scoring Heuristic Snapshot</summary>
+        <pre style="white-space:pre-wrap;">Score(buf) = Σ occurrences(common_chars) / len(buf)
+Retain threshold > 0.35 to minimize false positives.</pre>
+    </details>
+</details>
+</div>
 
 # AES Keyspace Reduction (Concise)
 

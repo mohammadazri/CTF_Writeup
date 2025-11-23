@@ -1,3 +1,4 @@
+<!-- meta -->
 ---
 title: Playcat EJS Type Confusion RCE
 ctf: IBOH_APU
@@ -7,6 +8,35 @@ difficulty: Hard
 date: 2025-11-23
 flag: BOH25{wHy_15_th3r3_s0_m4ny_vuln3r4b1l17y_1n_J5???}
 ---
+<!-- /meta -->
+
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/Web-EJS%20Type%20Confusion-critical?logo=node.js&logoColor=white&labelColor=0d1117&color=8b0000">
+  <img alt="EJS Type Confusion" src="https://img.shields.io/badge/Web-EJS%20Type%20Confusion-critical?logo=node.js&logoColor=white&labelColor=fafafa&color=8b0000">
+</picture>
+<sub>Array coercion bypasses validation; template injection reads filesystem.</sub>
+
+<table>
+  <tr><td><strong>CTF</strong></td><td>IBOH_APU</td><td><strong>Category</strong></td><td>Web Exploitation</td></tr>
+  <tr><td><strong>Difficulty</strong></td><td>Hard</td><td><strong>Exploit Time</strong></td><td>&lt; 5 min</td></tr>
+  <tr><td><strong>Key Sink</strong></td><td>`ejs.render(JSON.stringify(input))`</td><td><strong>Flag</strong></td><td><code>BOH25{wHy_15_th3r3_s0_m4ny_vuln3r4b1l17y_1n_J5???}</code></td></tr>
+</table>
+
+<details>
+  <summary><strong>▼ Flow Diagram (Mermaid)</strong></summary>
+
+```mermaid
+flowchart LR
+  R[Repeated userInput params] --> A[Array creation]
+  A --> V[Validation Bypass]
+  V --> T[EJS render(JSON.stringify)]
+  T --> FS[Filesystem Access]
+  FS --> F[Flag]
+  style F fill:#0b6623,stroke:#0b6623,color:#fff
+```
+  </details>
+</div>
 
 # Playcat EJS Injection (Concise)
 
