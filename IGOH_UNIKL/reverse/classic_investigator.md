@@ -1,14 +1,4 @@
-<!-- meta -->
----
-title: ClassicInvestigator — Reverse Engineering Hidden UTF‑16LE Section
-ctf: IGOH CTF 2025
-category: Reverse Engineering
-points: 100
-difficulty: Easy
-date: 2025-11-23
-flag: igoh25{b6466b87ba713e8fbc336af3bb53c9}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=ClassicInvestigator&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
 
 <div align="center">
 <picture>

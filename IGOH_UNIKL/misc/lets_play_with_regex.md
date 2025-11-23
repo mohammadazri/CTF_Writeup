@@ -1,14 +1,4 @@
-<!-- meta -->
----
-title: Regex Challenge
-ctf: iGoH 2025
-category: Misc
-points: 50
-difficulty: Easy
-date: 2025-11-23
-flag: igoh25{44c5b763d21e9a3ed8cad56977bfd75c}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=Regex%20Challenge&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
 
 <div align="center">
 <picture>

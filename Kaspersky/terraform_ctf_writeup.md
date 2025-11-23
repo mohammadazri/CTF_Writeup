@@ -1,13 +1,6 @@
-<!-- meta -->
----
-title: Terraform External Provider Abuse
-ctf: Kaspersky 2025
-category: Cloud/Web
-difficulty: Medium
-date: 2025-11-23
-flag: sunctf25{1_tH0ught_t3rr4f0rm_pl4n_w4s_h4rml3ss?}
----
-<!-- /meta -->
+
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=Terraform%20External%20Provider%20Abuse&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40) 
+
 
 <div align="center">
 <picture>

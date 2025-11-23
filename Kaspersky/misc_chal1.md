@@ -1,14 +1,5 @@
-<!-- meta -->
----
-title: Packet Palette CSS Color Stego
-ctf: Kaspersky 2025
-category: Misc / Forensics
-points: 80
-difficulty: Easy
-date: 2025-11-23
-flag: sunctf25{u6ly_c55_c0l0r5}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=Packet%20Palette%20CSS%20Color%20Stego&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40) 
+
 
 <div align="center">
 <picture>

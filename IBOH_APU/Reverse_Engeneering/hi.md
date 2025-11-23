@@ -1,14 +1,5 @@
-<!-- meta -->
----
-title: HI Hidden Function Invocation
-ctf: IBOH_APU
-category: Reverse Engineering
-points: 150
-difficulty: Medium
-date: 2025-11-23
-flag: BOH25{D1d_u_s0lv3d_it_w17h0u7_CHa7GP7_?_W311_D0n3!}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=HI%20Hidden%20Function%20Invocation&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
+
 
 <div align="center">
 <picture>

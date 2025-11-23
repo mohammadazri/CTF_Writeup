@@ -1,6 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=CTF%20Writeup&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
-
-
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=Spaghetti%20Multi%20Flag%20Dropper&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
 
 <div align="center">
 <picture>

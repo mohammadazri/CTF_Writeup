@@ -1,14 +1,5 @@
-<!-- meta -->
----
-title: Keyboard Layout Typo
-ctf: iGoH 2025
-category: Misc
-points: 50
-difficulty: Easy
-date: 2025-11-23
-flag: igoh25{05cf677b6b067cad39d5c86eb39a6a0b}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=Keyboard%20Layout%20Typo&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
+
 
 <div align="center">
 <picture>

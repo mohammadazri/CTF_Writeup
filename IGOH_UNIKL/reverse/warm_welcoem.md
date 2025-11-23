@@ -1,14 +1,4 @@
-<!-- meta -->
----
-title: Warm Welcome — Extracting Raw MD5 from ELF
-ctf: IGOH CTF 2025
-category: Reverse Engineering
-points: 195
-difficulty: Medium
-date: 2025-11-23
-flag: igoh2025{3c07041eb3b9eccac8d4f2fe86b3df88}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=Warm%20Welcome&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40) 
 
 <div align="center">
 <picture>

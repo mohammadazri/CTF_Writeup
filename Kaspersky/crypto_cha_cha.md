@@ -1,14 +1,5 @@
-<!-- meta (retained for tooling) -->
----
-title: Resemblance ChaCha20 Keystream Reuse
-ctf: Kaspersky 2025
-category: Crypto
-points: 150
-difficulty: Medium
-date: 2025-11-23
-flag: sunctf25{m4yb3_s0m3_k3y_d1ff3r3nc3_1snt_s0_b4d_4ft3r4LL}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=Resemblance%20ChaCha20%20Keystream%20Reuse&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40) 
+
 
 <div align="center">
 <picture>

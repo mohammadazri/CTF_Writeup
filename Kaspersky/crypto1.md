@@ -1,14 +1,4 @@
-<!-- meta -->
----
-title: AES Keyspace Reduction Crypto
-ctf: Kaspersky 2025
-category: Crypto
-points: Unknown
-difficulty: Hard
-date: 2025-11-23
-flag: kaspersky{7h1s_3t3rn41_str1v1ng_m4k3s_m3_wh4t_1_4m}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=AES%20Keyspace%20Reduction%20Crypto&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
 
 <div align="center">
 <picture>

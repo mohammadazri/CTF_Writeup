@@ -1,14 +1,5 @@
-<!-- meta -->
----
-title: No-Sig, No-Problem
-ctf: iGoH 2025
-category: Web / Exploitation
-points: 50
-difficulty: Easy
-date: 2025-11-23
-flag: igoh25{603f099fff9a766df710ecc9ce3aa4e9}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=No%20Sig%20No%20Problem&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
+
 
 <div align="center">
 <picture>

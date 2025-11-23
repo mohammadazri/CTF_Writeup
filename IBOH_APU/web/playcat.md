@@ -1,14 +1,4 @@
-<!-- meta -->
----
-title: Playcat EJS Type Confusion RCE
-ctf: IBOH_APU
-category: Web Exploitation
-points: 290
-difficulty: Hard
-date: 2025-11-23
-flag: BOH25{wHy_15_th3r3_s0_m4ny_vuln3r4b1l17y_1n_J5???}
----
-<!-- /meta -->
+![header](https://capsule-render.vercel.app/api?type=waving&height=120&text=PlaycatEJS%20Type%20Confusion%20RCE&fontColor=00E1FF&color=0A0F1F,1A2A3A&fontSize=32&fontAlignY=40)
 
 <div align="center">
 <picture>
