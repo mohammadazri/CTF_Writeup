@@ -1,3 +1,4 @@
+<!-- meta (retained for tooling) -->
 ---
 title: Resemblance ChaCha20 Keystream Reuse
 ctf: Kaspersky 2025
@@ -7,6 +8,63 @@ difficulty: Medium
 date: 2025-11-23
 flag: sunctf25{m4yb3_s0m3_k3y_d1ff3r3nc3_1snt_s0_b4d_4ft3r4LL}
 ---
+<!-- /meta -->
+
+<div align="center">
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/ChaCha20-Nonce%20Reuse-critical?logo=cloudflare&logoColor=white&labelColor=0d1117&color=8b0000">
+    <img alt="ChaCha20 Nonce Reuse" src="https://img.shields.io/badge/ChaCha20-Nonce%20Reuse-critical?logo=cloudflare&logoColor=white&labelColor=fafafa&color=8b0000">
+</picture>
+
+<sub>Reused nonce collapses confidentiality of dual ciphertext stream.</sub>
+
+<table>
+    <tr>
+        <td><strong>CTF</strong></td><td>Kaspersky 2025</td>
+        <td><strong>Category</strong></td><td>Crypto</td>
+    </tr>
+    <tr>
+        <td><strong>Points</strong></td><td>150</td>
+        <td><strong>Difficulty</strong></td><td>Medium</td>
+    </tr>
+    <tr>
+        <td><strong>Exploit Time</strong></td><td>&lt; 60s</td>
+        <td><strong>Flag</strong></td><td><code>sunctf25{m4yb3_s0m3_k3y_d1ff3r3nc3_1snt_s0_b4d_4ft3r4LL}</code></td>
+    </tr>
+</table>
+
+<details>
+    <summary><strong>▼ Expanded Analysis</strong></summary>
+    <blockquote>
+        Vector: Nonce reuse · Primitive: ChaCha20 · Mode: Stream XOR · Impact: Full plaintext recovery
+    </blockquote>
+    <div>
+    <pre style="white-space:pre-wrap; margin:0;">Derivation:
+keystream := C_msg XOR P_msg
+flag      := C_flag XOR keystream</pre>
+    </div>
+    <details>
+        <summary>Flow Diagram (Mermaid)</summary>
+
+```mermaid
+flowchart LR
+    A[Known Story Plaintext P_msg] -->|XOR| K[Recovered Keystream]
+    C1[Ciphertext C_msg] -->|XOR with P_msg| K
+    C2[Ciphertext C_flag] -->|XOR with K| F[Flag Plaintext]
+    style K fill:#222,stroke:#555,color:#eee
+    style F fill:#0b6623,stroke:#0b6623,color:#fff
+```
+    </details>
+    <details>
+        <summary>Entropy Snapshot</summary>
+        <pre style="white-space:pre-wrap;">Plain segment entropy ≈ 5.1 bits/byte
+Cipher segment entropy ≈ 7.9 bits/byte
+Recovered flag entropy ≈ 4.2 bits/byte (ASCII bias)</pre>
+    </details>
+</details>
+
+</div>
+
 
 # ChaCha20 Keystream Reuse (Concise)
 
