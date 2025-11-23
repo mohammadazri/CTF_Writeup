@@ -1,8 +1,9 @@
 name: Dynamic README Update
 on:
-  schedule:
-    - cron: '0 0 * * *'  # every day at UTC midnight
-  workflow_dispatch:
+  push:
+    branches:
+      - master  # triggers on commits to master
+  workflow_dispatch:  # allows manual trigger
 
 jobs:
   update-readme:
@@ -29,4 +30,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "🌐 Auto-update README"
-          branch: main
+          branch: master
