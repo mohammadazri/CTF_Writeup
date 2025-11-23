@@ -5,8 +5,8 @@
 <h3 align="center" style="color:#C0C0C0;">by <strong>mohammadazri</strong></h3>
 
 <p align="center" style="color:#A0A0A0; font-size:16px;">
-A curated archive of <strong>CTFs</strong>, <strong>AI challenges</strong>, <strong>crypto puzzles</strong>, and <strong>OSINT cases</strong>.  
-Structured, professional, and visually immersive in cyberpunk style.
+A collection of <strong>CTF challenges</strong>, <strong>AI puzzles</strong>, <strong>crypto problems</strong>, and <strong>OSINT tasks</strong> that I’ve solved.  
+All documented in an easy-to-follow, student-friendly style.
 </p>
 
 <!-- Badges -->
@@ -17,20 +17,11 @@ Structured, professional, and visually immersive in cyberpunk style.
 <img src="https://img.shields.io/badge/Portfolio-Public-0FF?style=for-the-badge">
 </p>
 
-<!-- Animated Divider -->
-<p align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&height=60&text=Notes%20&%20Archive&fontColor=00FFE1&color=0A0F1F,1F2A3A&fontSize=24">
-</p>
-
 </div>
 
 ---
 
 ## 🕹 Platforms & Participation
-
-<p align="center">
-<img src="https://capsule-render.vercel.app/api?type=wave&height=40&section=header&color=0:0A0F1F,100:1F2A3A&animation=fadeIn">
-</p>
 
 <div align="center">
 <img src="https://img.shields.io/badge/Hack%20The%20Box-Active-00FFD7?style=for-the-badge&logo=hackthebox">
@@ -53,9 +44,13 @@ Structured, professional, and visually immersive in cyberpunk style.
 
 ## 💾 Notes & Archive
 
+<div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&height=60&text=Notes%20%26%20Archive&fontColor=00FFE1&color=0A0F1F,1F2A3A&fontSize=24">
+</div>
+
 <p align="center" style="color:#A0A0A0; font-family:'Courier New', monospace; font-size:14px;">
-All writeups are documented in a **professional, structured format** with code snippets, screenshots, and analysis logs.  
-This vault is a **living archive** of cybersecurity research and CTF participation.
+All my CTF writeups are saved here with code snippets, screenshots, and explanations.  
+This vault is a **personal archive** of the challenges I’ve solved as a student.
 </p>
 
 ---
@@ -65,7 +60,7 @@ This vault is a **living archive** of cybersecurity research and CTF participati
 <div align="center">
 
 <!-- Neon Header Panel -->
-<img src="https://capsule-render.vercel.app/api?type=waving&height=80&text=Connect%20with%20Me&fontColor=00FFE1&color=0A0F1F,1F2A3A&fontSize=20&animation=fadeIn">
+<img src="https://capsule-render.vercel.app/api?type=waving&height=80&text=Connect%20with%20Me&fontColor=00FFE1&color=0A0F1F,1F2A3A&fontSize=20">
 
 <!-- Contact Cards -->
 <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:10px;">
@@ -96,12 +91,8 @@ This vault is a **living archive** of cybersecurity research and CTF participati
 
 </div>
 
-
-
 ---
 
 <div align="center">
-
 <img src="https://capsule-render.vercel.app/api?type=rect&height=50&text=Stay%20Curious%20.•%20Stay%20Offensive%20.•%20Stay%20Sharp&fontColor=00FFE1&color=1F2A3A&fontSize=18">
-
 </div>
