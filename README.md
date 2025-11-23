@@ -33,7 +33,10 @@ All documented in an easy-to-follow, student-friendly style.
 
 ---
 
-## 📊 GitHub Stats
+<!-- Animated Divider for GitHub Stats -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=60&text=GitHub%20Stats&fontColor=FF00FF&color=6A0DAD,00FFFF&fontSize=24">
+</p>
 
 <div align="center">
 <img src="https://github-readme-stats.vercel.app/api?username=mohammadazri&show_icons=true&theme=tokyonight&hide_border=true&icon_color=00FFE1" height="140">  
@@ -42,11 +45,10 @@ All documented in an easy-to-follow, student-friendly style.
 
 ---
 
-## 💾 Notes & Archive
-
-<div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&height=60&text=Notes%20%26%20Archive&fontColor=00FFE1&color=0A0F1F,1F2A3A&fontSize=24">
-</div>
+<!-- Animated Divider -->
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&height=60&text=Notes%20&%20Archive&fontColor=00FFE1&color=0A0F1F,1F2A3A&fontSize=24">
+</p>
 
 <p align="center" style="color:#A0A0A0; font-family:'Courier New', monospace; font-size:14px;">
 All my CTF writeups are saved here with code snippets, screenshots, and explanations.  
@@ -55,7 +57,6 @@ This vault is a **personal archive** of the challenges I’ve solved as a studen
 
 ---
 
-## ✉ Connect / Collaboration
 
 <div align="center">
 
