@@ -1,108 +1,68 @@
-Here’s a polished, complete write-up for the **“Resemblance” ChaCha20 challenge**, including the recovered flag:
-
+---
+title: Resemblance ChaCha20 Keystream Reuse
+ctf: Kaspersky 2025
+category: Crypto
+points: 150
+difficulty: Medium
+date: 2025-11-23
+flag: sunctf25{m4yb3_s0m3_k3y_d1ff3r3nc3_1snt_s0_b4d_4ft3r4LL}
 ---
 
-# **CTF Write-up: Resemblance (Crypto)**
+# ChaCha20 Keystream Reuse (Concise)
 
-**Points:** 150
-**Author / Team:** warlocksmurf
-**Challenge Description:**
+![vector](https://img.shields.io/badge/Vector-keystream%20reuse-red) ![primitive](https://img.shields.io/badge/Primitive-ChaCha20-0a84ff) ![impact](https://img.shields.io/badge/Impact-flag%20recovery-critical) ![mode](https://img.shields.io/badge/Mode-stream-purple) ![status](https://img.shields.io/badge/Flag-extracted-success)
 
-> Sir Cha-Cha never liked reusing stuff anyway
+## Summary
+Known plaintext + reused (key, nonce) pair → identical keystream for story and flag → XOR to recover keystream then flag.
 
-**Challenge Files:**
+## Chain
+Parse hex → derive keystream (`C_msg ⊕ P_msg`) → XOR with flag ciphertext → plaintext flag.
 
-* `chal.py` – Python script that encrypts a message and a flag using ChaCha20.
-* `out.txt` – Output containing the nonce, encrypted message, and encrypted flag.
+## Files
+| Artifact | Purpose |
+|----------|---------|
+| `chal.py` | Encryption routine `whisper()` |
+| `out.txt` | Hex nonce, story ciphertext, flag ciphertext |
 
----
+## Flag Extraction Steps
+| Step | Action | Result |
+|------|--------|--------|
+| 1 | Load hex lines | `nonce`, `C_msg`, `C_flag` bytes |
+| 2 | Keystream = `C_msg ⊕ P_msg` | Full keystream bytes |
+| 3 | Flag = `C_flag ⊕ keystream` | Plaintext flag |
+| 4 | Output | `sunctf25{...}` |
 
-## **1️⃣ Challenge Analysis**
-
-The provided Python script `chal.py` uses **ChaCha20**, a stream cipher, to encrypt:
-
+## Exploit Script
 ```python
-enc_msg = whisper(message, key, iv)
-enc_flag = whisper(flag, key, iv)
+with open('out.txt') as f:
+    iv_hex, c_msg_hex, c_flag_hex = f.read().splitlines()
+msg_ct = bytes.fromhex(c_msg_hex)
+flag_ct = bytes.fromhex(c_flag_hex)
+message = (b'The streets of New Eridu '  # known narrative
+           b'hummed with neon life, untouched by the chaos of the Hollows. Proxies whispered through back alleys, '
+           b'chasing commissions that bordered on myth and madness. One night, '
+           b'a Hollow surged open near Sixth Street... ')
+keystream = bytes(c ^ p for c, p in zip(msg_ct, message))
+flag = bytes(c ^ k for c, k in zip(flag_ct, keystream))
+print(flag.decode())
 ```
 
-Key observations:
+## Pitfalls
+| Issue | Fix |
+|-------|-----|
+| Mismatch lengths | Truncate to shortest during XOR |
+| Missing full plaintext | Need accurate known text portion |
+| Nonce confusion | Ensure nonce reused (confirm in file) |
 
-1. The **same key and nonce (`iv`) are reused** for both the message and the flag.
-2. Stream ciphers XOR the plaintext with a deterministic keystream. Reusing the keystream is equivalent to a **two-time pad**, which is cryptographically unsafe.
-3. This allows us to compute the keystream from the known plaintext message and decrypt the flag:
+## Mitigation
+| Control | Purpose |
+|---------|---------|
+| Unique nonce per message | Prevent keystream reuse |
+| AEAD mode (ChaCha20-Poly1305) | Authenticity + safe reuse checks |
+| Monitoring for repeated IV | Detect cryptographic misuse |
 
-$$
-keystream = ciphertext_{message} \oplus plaintext_{message}  
-$$
+## Indicators
+Identical nonce with multiple ChaCha20 invocations; large known narrative shipped alongside unknown blob.
 
-$$
-flag = ciphertext_{flag} \oplus keystream
-$$
-
----
-
-## **2️⃣ Exploit Strategy**
-
-1. Extract the **ciphertext** and **nonce** from `out.txt`.
-2. Use the **known plaintext message** to recover the keystream.
-3. XOR the keystream with the flag’s ciphertext to reveal the flag.
-
----
-
-## **3️⃣ Python Exploit Script**
-
-```python
-# resemblance.py
-
-# Load out.txt
-with open("out.txt") as f:
-    iv_hex, enc_msg_hex, enc_flag_hex = f.read().splitlines()
-
-enc_msg = bytes.fromhex(enc_msg_hex)
-enc_flag = bytes.fromhex(enc_flag_hex)
-
-# Known plaintext message
-message = (
-    b"The streets of New Eridu "
-    b"hummed with neon life, untouched by the chaos of the Hollows. Proxies whispered through back alleys, "
-    b"chasing commissions that bordered on myth and madness. One night, "
-    b"a Hollow surged open near Sixth Street... "
-)
-
-# Recover keystream
-keystream = bytes([c ^ m for c, m in zip(enc_msg, message)])
-
-# Decrypt flag
-flag = bytes([c ^ k for c, k in zip(enc_flag, keystream)])
-
-print("Recovered flag:", flag)
-```
-
-**Run the script:**
-
-```bash
-python resemblance.py
-```
-
----
-
-## **4️⃣ Recovered Flag**
-
-```
-sunctf25{m4yb3_s0m3_k3y_d1ff3r3nc3_1snt_s0_b4d_4ft3r4LL}
-```
-
----
-
-## **5️⃣ Key Takeaways**
-
-* **Never reuse the same key and nonce with a stream cipher.**
-* Knowing any part of the plaintext allows recovery of other messages encrypted with the same keystream.
-* This challenge demonstrates a **classic two-time pad vulnerability** in ChaCha20.
-
----
-
-If you want, I can also make a **super concise 1-paragraph version** suitable for submitting on CTF platforms—it’s much shorter and straight to the point.
-
-Do you want me to make that version too?
+## Final Flag
+`sunctf25{m4yb3_s0m3_k3y_d1ff3r3nc3_1snt_s0_b4d_4ft3r4LL}`
