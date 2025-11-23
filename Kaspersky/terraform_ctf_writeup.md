@@ -26,20 +26,22 @@ flag: sunctf25{1_tH0ught_t3rr4f0rm_pl4n_w4s_h4rml3ss?}
 	<summary><strong>▼ Expanded Analysis</strong></summary>
 	<blockquote>Vector: Unsandboxed plan API · Impact: Arbitrary command execution · Mode: Shell via JSON wrapper</blockquote>
 	<details>
-		<summary>Flow Diagram (Mermaid)</summary>
-
-```mermaid
+		<summary>Flow Diagram</summary>
+		<div class="mermaid">
 flowchart LR
-	A[Attacker HCL] --> B[data "external" program]
-	B --> C[Base64 + sed wrapper]
-	C --> D[List /]
-	D --> E[Find SUID /getflag]
-	E --> F[Execute /getflag | base64]
-	F --> G[Decode locally]
-	G --> H[Flag]
-	style H fill:#0b6623,stroke:#0b6623,color:#fff
-```
-	</details>
+  A[Attacker HCL] --> B[data "external" program]
+  B --> C[Base64 + sed wrapper]
+  C --> D[List /]
+  D --> E[Find SUID /getflag]
+  E --> F[Execute /getflag | base64]
+  F --> G[Decode locally]
+  G --> H[Flag]
+  style H fill:#0b6623,stroke:#0b6623,color:#fff
+		</div>
+		<pre><code>ASCII:
+[HCL] -> [external] -> [wrapper] -> [ls /] -> [find /getflag] -> [/getflag | base64] -> [decode] -> [FLAG]
+</code></pre>
+		</details>
 	<details>
 		<summary>Execution Notes</summary>
 		<pre style="white-space:pre-wrap;">Wrapper pattern: base64 | tr -d '\n' | sed 's/.*/{"key":"&"}/'

@@ -26,23 +26,25 @@ flags:
 </table>
 
 <details>
-    <summary><strong>▼ Flow Diagram (Mermaid)</strong></summary>
-
-```mermaid
+    <summary><strong>▼ Flow Diagram</strong></summary>
+    <div class="mermaid">
 flowchart LR
-    S[Script] --> R[Extract FonatozQZ blocks]
-    R --> C[Replay .Replace() chain]
-    C --> T{Type?}
-    T -->|Bitstream| B[Map bits]
-    T -->|Entities| E[Decode HTML]
-    T -->|Plaintext| P[Search flag]
-    B --> F1[Flag 1]
-    E --> F2[Flag 2]
-    P --> F3[Flag 3]
-    style F1 fill:#0b6623,color:#fff
-    style F2 fill:#0b6623,color:#fff
-    style F3 fill:#0b6623,color:#fff
-```
+  S[Script] --> R[Extract FonatozQZ blocks]
+  R --> C[Replay .Replace() chain]
+  C --> T{Type?}
+  T -->|Bitstream| B[Map bits]
+  T -->|Entities| E[Decode HTML]
+  T -->|Plaintext| P[Search flag]
+  B --> F1[Flag 1]
+  E --> F2[Flag 2]
+  P --> F3[Flag 3]
+  style F1 fill:#0b6623,color:#fff
+  style F2 fill:#0b6623,color:#fff
+  style F3 fill:#0b6623,color:#fff
+    </div>
+    <pre><code>ASCII:
+[Script] -> [Extract blocks] -> [Replay Replace] -> {Bitstream|Entities|Plaintext} -> [Decode] -> [Flags]
+</code></pre>
     </details>
 </div>
 

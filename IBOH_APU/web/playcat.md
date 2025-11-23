@@ -24,9 +24,8 @@ flag: BOH25{wHy_15_th3r3_s0_m4ny_vuln3r4b1l17y_1n_J5???}
 </table>
 
 <details>
-  <summary><strong>▼ Flow Diagram (Mermaid)</strong></summary>
-
-```mermaid
+  <summary><strong>▼ Flow Diagram</strong></summary>
+  <div class="mermaid">
 flowchart LR
   R[Repeated userInput params] --> A[Array creation]
   A --> V[Validation Bypass]
@@ -34,7 +33,10 @@ flowchart LR
   T --> FS[Filesystem Access]
   FS --> F[Flag]
   style F fill:#0b6623,stroke:#0b6623,color:#fff
-```
+  </div>
+  <pre><code>ASCII:
+[Repeated params] -> [Array] -> [Bypass] -> [EJS render] -> [File read] -> [FLAG]
+</code></pre>
   </details>
 </div>
 
