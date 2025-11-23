@@ -25,18 +25,15 @@ flag: BOH25{D1d_u_s0lv3d_it_w17h0u7_CHa7GP7_?_W311_D0n3!}
 
 <details>
 	<summary><strong>▼ Flow Diagram</strong></summary>
-	<div class="mermaid">
+<div class="mermaid">
 flowchart LR
   B[Binary] --> S[readelf symbols]
   S --> G[gdb start]
   G --> A[Resolve address]
-  A --> C[Call ((void(*)()) secret_func)()]
+  A --> C[Call secret_func]
   C --> F[Flag]
   style F fill:#0b6623,stroke:#0b6623,color:#fff
-	</div>
-	<pre><code>ASCII:
-[Binary] -> [symbols] -> [gdb start] -> [resolve addr] -> [direct call] -> [FLAG]
-</code></pre>
+</div>
 	</details>
 </div>
 

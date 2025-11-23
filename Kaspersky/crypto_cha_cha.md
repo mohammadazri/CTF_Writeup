@@ -48,11 +48,12 @@ flag      := C_flag XOR keystream</pre>
 
 ```mermaid
 flowchart LR
-    A[Known Story Plaintext P_msg] -->|XOR| K[Recovered Keystream]
-    C1[Ciphertext C_msg] -->|XOR with P_msg| K
-    C2[Ciphertext C_flag] -->|XOR with K| F[Flag Plaintext]
-    style K fill:#222,stroke:#555,color:#eee
-    style F fill:#0b6623,stroke:#0b6623,color:#fff
+  A[Known Story Plaintext P_msg] -->|XOR| K[Recovered Keystream]
+  C1[Ciphertext C_msg] -->|XOR with P_msg| K
+  C2[Ciphertext C_flag] -->|XOR with K| F[Flag Plaintext]
+  style K fill:#222,stroke:#555,color:#eee
+  style F fill:#0b6623,stroke:#0b6623,color:#fff
+
 ```
     </details>
     <details>
