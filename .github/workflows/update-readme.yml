@@ -1,0 +1,32 @@
+name: Dynamic README Update
+on:
+  schedule:
+    - cron: '0 0 * * *'  # every day at UTC midnight
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set Metadata
+        run: |
+          echo "USERNAME=${GITHUB_REPOSITORY_OWNER}" >> $GITHUB_ENV
+          UPDATED_AT=$(date -u +"%Y-%m-%d %H:%M UTC")
+          echo "UPDATED_AT=$UPDATED_AT" >> $GITHUB_ENV
+          PUBLIC_REPOS=$(curl -s https://api.github.com/users/${GITHUB_REPOSITORY_OWNER} | jq .public_repos)
+          echo "PUBLIC_REPOS=$PUBLIC_REPOS" >> $GITHUB_ENV
+
+      - name: Generate README
+        uses: muesli/readme-scribe@master
+        with:
+          template: "templates/README.md.tpl"
+          writeTo: "README.md"
+
+      - name: Commit & Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "🌐 Auto-update README"
+          branch: main
