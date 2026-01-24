@@ -13,8 +13,8 @@
 | Final Authority | AI | 180 | Captured |
 | Beneath the Fur | AI | 240 | Captured |
 | CYNXless World | Web | 180 | Captured |
-| PLUS ULTRA!!! | Web / Priv Esc | 10 | Captured |
-| PWN1-E0L | Pwn | 115 | Captured |
+| PLUS ULTRA!!! | Web / Priv Esc | 175 | Captured |
+| PWN1-E0L | Pwn | 110 | Captured |
 | The Illusionist’s Bet | Crypto/Reversing | 220 | Captured |
 | m1r4g3 – The Silent Watcher | Reverse | Unknown | Captured |
 
@@ -221,7 +221,7 @@ if __name__ == "__main__":
 
 ### PLUS ULTRA
 
-Category: Web / Privilege Escalation | Points: 10
+Category: Web / Privilege Escalation | Points: 175
 
 Description: n8n workflow instance with hint about Python ("snake") granted special capabilities. Objective: escalate to root and read proof.
 
@@ -246,7 +246,7 @@ CYNX{Plus_Ultr4_Sm4sh_Th3_K3rn3l}
 
 ### PWN1-E0L
 
-Category: Pwn | Points: 115
+Category: Pwn | Points: 110
 
 Description: Vulnerable ELF binary with unchecked input; objective: ret2win via buffer overflow.
 
